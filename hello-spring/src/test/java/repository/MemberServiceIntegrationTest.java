@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import hello.hellospring.HelloSpringApplication;
@@ -23,15 +24,22 @@ class MemberServiceIntegrationTest {
 	MemberRepository memberRepository;
 
 	@Test
+	@Commit
 	public void 회원가입() throws Exception {
 		// Given
 		Member member = new Member();
-		member.setName("hell");
+		member.setName("22222");
 		// When
 		Long saveId = memberService.join(member);
 		// Then
 		Member findMember = memberRepository.findById(saveId).get();
 		assertEquals(member.getName(), findMember.getName());
+	}
+	
+	@Test
+	public void findByName() {
+		Member member = memberRepository.findByName("jap").get();
+		System.out.println(member.getId());
 	}
 
 	@Test
