@@ -11,9 +11,8 @@ import org.springframework.stereotype.Repository;
 import hello.hellospring.domain.Member;
 
 /**
- * µ¿½Ã¼º ¹®Á¦°¡ °í·ÁµÇ¾î ÀÖÁö ¾ÊÀ½, ½Ç¹«¿¡¼­´Â ConcurrentHashMap, AtomicLong »ç¿ë °í·Á
+ * ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ConcurrentHashMap, AtomicLong ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
  */
-@Repository
 public class MemoryMemberRepository implements MemberRepository {
 	private static Map<Long, Member> store = new HashMap<>();
 	private static long sequence = 0L;
