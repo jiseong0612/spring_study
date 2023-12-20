@@ -11,7 +11,7 @@ import hello.core.service.OrderService;
 
 public class OrderApp {
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(HelloCoreApplication.class);
 		
 		MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 		OrderService orderService  = applicationContext.getBean("orderService", OrderService.class);

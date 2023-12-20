@@ -3,6 +3,8 @@ package hello.core.order;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import hello.core.Appconfig;
 import hello.core.domain.Grade;
@@ -17,9 +19,10 @@ public class OrderServiceTest {
 	
 	@BeforeEach
 	public void beforeEach() {
-		Appconfig appConfig = new Appconfig();
-		memberServcie = appConfig.memberService();
-		orderService = appConfig.orderService();
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
+		
+		memberServcie = applicationContext.getBean("memberServcie", MemberService.class);
+		orderService = applicationContext.getBean("orderService", OrderService.class);
 	}
 
 	@Test
