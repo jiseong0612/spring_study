@@ -1,9 +1,14 @@
 package com.makeBlog.domain;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -24,6 +29,14 @@ public class Article {
 	
 	@Column(nullable = false)
 	private String content;
+	
+	@CreatedDate
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
+	
+	@LastModifiedDate
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
 	
 	@Builder
 	public Article(String title, String content) {
