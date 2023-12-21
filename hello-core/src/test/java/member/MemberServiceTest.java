@@ -14,8 +14,8 @@ public class MemberServiceTest {
 	
 	@BeforeEach
 	public void beforeEach() {
-		Appconfig appConfig = new Appconfig();
-		memberService = appConfig.memberService();
+//		Appconfig appConfig = new Appconfig();
+//		memberService = appConfig.memberService();
 	}
 	@Test
 	void join() {
