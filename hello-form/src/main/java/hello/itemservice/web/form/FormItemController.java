@@ -1,5 +1,7 @@
 package hello.itemservice.web.form;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +43,9 @@ public class FormItemController {
 	}
 
 	@GetMapping("/add")
-	public String addForm(Item item) {
+	public String addForm(Item item, Model model) {
+		List<String> names = Arrays.asList("aaa", "bbbb", "ccc");
+		model.addAttribute("names",names);
 		return "form/addForm";
 	}
 
